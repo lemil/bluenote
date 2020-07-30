@@ -1,0 +1,41 @@
+version: '3'
+services:
+    mq:
+        image: 'rabbitmq:3.8-management'
+        ports:
+            - '5672:5672'
+            - '15672:15672'
+        environment:
+            - RABBITMQ_DEFAULT_USER=rabbitmq
+            - RABBITMQ_DEFAULT_PASS=password
+        volumes:
+            - '../static/rabbitmq:/var/lib/rabbitmq'
+
+    bluenote:
+        image: 'bluenote_api:1'
+        env_file:
+            - '../env/bluenote/docker_settings.env'
+        volumes:
+            - './www:/var/www/html'
+            - '../static/logs/apache-logs:/var/log/apache2'
+            - '../static/logs/ci-logs:/var/www/html/application/logs'
+            - '../static/logs/ci-cache:/var/www/html/application/cache'
+            - '../static/logs/ci-sessions:/var/www/html/application/sessions'
+            - './etc/php:/usr/local/etc/php'
+        ports:
+            - '80:80'
+        links:
+            - 'mq'
+
+#    worker-slack:
+#        hostname: worker-slack
+#        image: 'bluenote_worker:1'
+#        env_file:
+#            - '../env/bluenote/docker_settings.env'
+#        volumes:
+#           - './worker/slack-bot:/usr/emblue'
+#        depends_on:
+#           - 'mq'
+
+
+

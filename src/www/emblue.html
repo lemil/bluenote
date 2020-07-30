@@ -1,0 +1,98 @@
+<div class="right">
+<script>
+
+ var bn_visible = false;
+ var bn_host = 'http://localhost/'; // //bluenote-local.embluemail.com
+ var bn_cid = 0;
+
+ function toggle_bnotes(cid){
+ 	bn_cid = cid;
+  	if(bn_visible){
+       $('#bn_popup').hide(); 
+       $('.bluenote').css('background','transparent');
+       $('.bluenote-dot').hide();
+
+  	} else {
+  	   //var url = '//bluenote-local.embluemail.com/notification/inbox/'+cid;
+  	   var url = bn_host+'/notification/inbox/'+cid;
+  	   $('#bn_popup_frm').attr('src', url);
+       $('#bn_popup').show(); 
+       $('.bluenote').css('background','#ccc');
+  	}
+  	bn_visible = !bn_visible;
+ }
+
+ function bn_init() {
+ 	settimeout(bn_has_news,120);
+ }
+
+ function bn_has_news() {
+	$.ajax({
+	  url: bn_host+"/notification/size/"+bn_cid,
+	}).done( function(data){
+		var total = data.d;
+		if(total > 0) {
+			$('.bluenote-dot').show();
+		}
+	});
+ }
+
+</script>
+<style>
+    #bn_popup {
+    display: block;
+    position: absolute;
+    width: 308px;
+    height: 308px;
+    z-index: 5000;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 3px;
+    background: #ccc;
+    top: 37px;
+    }
+    #bn_popup_frm {
+        width:300px;
+        height:300px;
+        padding: 3px;
+        border:0;
+    }
+
+	.bluenote-dot {
+	    display: block;
+	    background: #f00;
+	    width: 7px;
+	    height: 7px;
+	    border-radius: 5px;
+	    position: relative;
+	    left: 26px;
+	    top: -28px;
+	    z-index: 5000;
+	}
+</style>
+<div id="bn_popup">
+    <iframe id="bn_popup_frm" src=""></iframe>
+</div>
+
+<div class="bluenote" style="
+    display: block;
+    width: 50px;
+    background: #ccc;
+    text-align: center;">
+          <a onclick="toggle_bnotes(1000)">
+            <i class="fas fa-bell" style="font-size: 16px;"></i>
+          </a>
+</div>
+<div class="bluenote-dot">&nbsp;</div>
+    
+<div class="campana">
+  <a onclick="window.open('https://blog.embluemail.com/super_features/herramientas-para-estrategia-email-marketing/','_blank');">
+    <i class="bell-ico spr"></i>
+  </a>
+</div>
+<div class="opt">
+  <div class="nota">
+    <div class="detalle"><b>Tenemos varios nuevos features en emBlue !<br><span>Aquí los detalles.</span></b></div>
+  </div>
+</div>
+</div>

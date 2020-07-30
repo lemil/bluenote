@@ -1,0 +1,48 @@
+	#table {
+		position: relative;
+		display: block;
+	    bottom: 0px;
+	    top: 0px;
+	    height: auto;
+	    width: auto;
+	    left: 0px;
+	    right: 0px;
+	    margin: 0; 
+	}
+
+	table.dataTable tr.odd {
+    	background-color: #f3f3f3;
+	}
+
+	table.dataTable tr.odd td.sorting_1 {
+    background-color: #d6d6d6;
+	}
+
+	table.dataTable tr.even td.sorting_1 {
+    background-color: #f3f3f3;
+	}
+
+	.dataTables_info {
+    	color: #666;
+    	font-size: 12px;
+	}
+
+	.report-div.error {
+	    border-color: red;
+	    background-color: #f0cccc;
+	    border-radius: 5px;
+	}
+	.report-div.success {
+    	border-color: green;
+  	    background-color: #ccf0cc;
+	    border-radius: 5px;
+	}
+
+	input[type="text"].form-control {
+    	height: 27px !important;
+    	width: 300px !important;
+	}
+
+	.datatables-add-button {
+		margin-left: 0;
+	}

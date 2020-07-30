@@ -1,0 +1,156 @@
+
+.login-name {
+    font-size: 18px;
+    font-family: 'Montserrat';
+    color: white;
+    display:none;
+    position: relative;
+    top: -2px;
+    width: 182px;
+    padding: 9px;
+    font-weight: bold;
+}
+
+.menu-row-img {
+    position: relative;
+    top: -2px;
+    left: 2px;
+}
+
+.mnu-button-container {
+    width: 200px; 
+    display: inline-block; 
+    background-color: #fefefe; 
+    border: 1px solid #c0c0c0 ; 
+    border-radius: 5px; 
+    margin: 10px 20px 20px 10px;
+    height: 36px;
+}
+
+.mnu-button-container:hover {
+    background-color: #e7e7e7;
+}
+
+.mnu-button{
+    background-color: #b154b4; 
+    height: 36px; 
+    width: 36px; 
+    display: inline-block;
+    border-radius: 5px 0 0 5px;    
+    position: relative;
+    top: -2px;
+}
+
+div.mnu-button > img {
+    position: relative;
+    top: 9px;
+    left: 9px;
+}
+
+div > div.menu {
+    display: inline-block;
+    position: relative;
+    top: 8px;
+    left: 9px;
+    font-family: 'Montserrat';
+    font-size: 14px;
+}
+
+.sidenav {
+    height: 100%;
+    width: 60px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #b154b4;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 5px;
+    font-size: 36px;
+}
+
+.sidenav a {
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+    font-family: 'Montserrat', cursive;
+}
+.sidenav ul {
+    list-style: none;
+    padding: 0;
+}
+.sidenav li {
+    background: transparent;
+}
+
+.sidenav a span {
+padding: 10px;
+vertical-align: bottom;
+position: relative;
+width: 167px;
+display: inline-block;
+top: 9px;
+border-radius: 5px;
+}
+.sidenav a span:hover { 
+background-color: #ffcc00;
+color: #0000ff;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+.sidenav-logo {
+    position: absolute;
+    top: 0px;
+    height: 80px;
+    width: 250px;
+    left: 0px;
+    display: none;
+    text-align: center;
+    background: #ffcc00;
+}
+
+.closebtn {
+    display: none;
+    width:100%;
+    text-align:right;
+    padding: 0 20px 0 0;
+}
+
+.loginbar {
+    position: fixed;
+    bottom: 15px;
+    left: 10px;
+    height: 60px;
+}
+
+.homebar {
+    position: relative;
+    top: 30px;
+    width: 240px;
+    padding: 0 18px;
+}
+
+.sideLogo {
+    position: fixed;
+    width: 36px;
+    left: 216px;
+}
+
+div.dbc {
+    margin: 0 15px 0 15px;
+    background: #f0f0f0;
+    padding: 0px 0px 0px 15px;
+    font-family: 'Montserrat';
+    font-size: 12px;
+    margin: 0px 0px -15px 0px;
+    position: relative;
+    top: -14px;
+}

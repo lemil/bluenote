@@ -1,0 +1,100 @@
+version: '3'
+services:
+    mq:
+        image: 'rabbitmq:3.8-management'
+        ports:
+            - '5672:5672'
+            - '15672:15672'
+        environment:
+            - RABBITMQ_DEFAULT_USER=rabbitmq
+            - RABBITMQ_DEFAULT_PASS=password
+        volumes:
+            - '../env/rabbitmq:/var/lib/rabbitmq'
+
+    db:
+        image: 'mysql:8.0.15'
+        command: '--default-authentication-plugin=mysql_native_password'
+        ports:
+            - '3307:3306'
+            - '33070:33060'
+        environment:
+            - MYSQL_ROOT_PASSWORD=123456
+            - MYSQL_DATABASE=smsgate
+        volumes:
+            - '../env/mysql/data:/var/lib/mysql'
+            - '../env/mysql:/docker-entrypoint-initdb.d'
+
+    intapi:
+        hostname: intapi
+        image: 'smsgate_api_intapi:latest'
+        environment:
+            - ENVIRONMENT=development
+            - DB_HOST=db
+            - DB_PORT=3306
+            - DB_USER=root    
+            - DB_PASS=123456
+            - DB_NAME=smsgate
+            - MQ_HOST=mq
+            - MQ_USER=guest
+            - MQ_PASS=guest
+        volumes:
+            - '../env/extapi/ci-cache:/var/www/html/application/cache'
+            - '../env/extapi/ci-sessions:/var/www/html/application/sessions' 
+        ports:
+            - '80:80'
+        links:
+            - db
+            - mq
+
+    worker-teleprom:
+        hostname: worker-teleprom
+        image: 'smsgate_worker_teleprom:latest'
+        environment:
+            - SLEEP=1
+            - BATCH_SIZE=1
+            - DB_HOST=db
+            - DB_PORT=3306
+            - DB_NAME=smsgate
+            - DB_USER=root
+            - DB_PASS=123456
+            - 'API_HOST=api:80'
+            - API_KEY=2495677f9dc7dba3a42c229859767af3679a542d88115e9d6512b91a1ca3fb02
+        volumes:
+            - '../env/worker/teleprom:/usr/emblue'
+        links:
+            - db
+            - intapi
+            - mq
+
+    extapi:
+        hostname: extapi
+        image: 'smsgate_api_extapi:latest'
+        environment:
+            - ENVIRONMENT=development
+            - DB_HOST=db
+            - DB_PORT=3306
+            - DB_USER=root    
+            - DB_PASS=123456
+            - DB_NAME=smsgate
+            - MQ_HOST=mq
+            - MQ_USER=guest
+            - MQ_PASS=guest
+        volumes:
+            - '../env/extapi/ci-cache:/var/www/html/application/cache'
+            - '../env/extapi/ci-sessions:/var/www/html/application/sessions' 
+        ports:
+            - '81:80'
+        links:
+            - db
+            - mq
+
+    worker-reporter:
+        hostname: wrk-reporter
+        image: 'smsgate_worker_reporter:latest'
+        environment:
+            - SLEEP=1
+            - BATCH_SIZE=1
+        links:
+            - db
+            - extapi
+            - mq

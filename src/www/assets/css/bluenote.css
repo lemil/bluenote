@@ -1,0 +1,286 @@
+body {
+	margin: 0;
+	padding: 0;
+	overflow: none;
+	background-color: rgb(250, 250, 250);
+
+}
+.container {
+	width: 100%;
+	overflow-y: scroll;
+	font-size: 12px;
+	font-family: verdana;
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+}
+
+.not-list {
+    margin-block-end: 17px;
+    margin-block-start: 30px;
+    margin-bottom: 17px;
+    margin-inline-end: 0px;
+    margin-inline-start: 0px;
+    margin-left: 0px;
+    margin-right: 12px;
+    padding-right: 0px;
+    padding-top: 0px;
+    margin-top: 18px;
+    padding-bottom: 0px;
+    padding-left: 9px;
+
+}
+
+
+.not-row {
+	display: block;
+    padding: 1px;
+	border-bottom: 1px solid rgb(210, 210, 210);
+	margin: 4px 0 0 0;
+}
+
+
+.not-row-empty {
+    color: #666;
+    text-align: center;
+    padding: 10px 0 0 0;
+}
+
+
+
+.not-check-all{
+    position: relative;
+    width: 70px;
+    height: 20px;
+    float: right;
+    right: 12px;
+    top: 9px;
+    background: #ccc;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #fff;
+    padding: 5px 0 0 0;
+}
+
+.not-check-all-reload{
+    position: relative;
+    width: 96px;
+    height: 20px;
+    float: right;
+    right: 12px;
+    top: 9px;
+    background: #ccc;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #fff;
+    padding: 5px 0 0 0;
+}
+
+
+.not-check-all:hover {
+    background: #63ced3;
+}
+
+.not-item-center {
+	color:rgb(52, 52, 52);
+	cursor:pointer;
+	font-family:Roboto, Helvetica, Arial, "Microsoft Sans Serif";
+	font-size:11px;
+	height:auto;
+	line-height:20px;
+	text-decoration-color:rgb(52, 52, 52);
+	text-decoration-line:none;
+	text-decoration-style:solid;
+	width: auto;
+	overflow: hidden;
+	display: inline-block;
+}
+
+@media (max-width: 400px) {
+	.not-item-center {
+		max-width: 200px;
+	}
+}
+
+.not-item-center-tit {
+	font-size: 14px;
+    font-weight: bold;
+    color: #3b3b3b;
+}
+
+.not-item-icon {
+	width: 29px;
+    height: 29px;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 16px;
+    background: #3761e7;
+    border-radius: 15px;
+    margin: 4px;
+}
+
+.icon-green {
+	background: #32aba4;
+}
+
+.icon-pink {
+	background: #c60c6c;
+}
+
+.not-item-icon > i{
+	padding: 7px 6px 6px 6px;
+	color: #fff;
+}
+
+
+.not-item-icon > i.fas.fa-calendar-alt  {
+	padding: 6px 6px 6px 7px;
+	color: #fff;
+}
+
+.not-item-icon > i.fas.fa-check {
+	padding: 7px 6px 6px 6px;
+	color: #fff;
+}
+
+.not-item-icon > i.fas.fa-exclamation-triangle {
+	padding: 5px 6px 6px 6px;
+	color: #fff;
+}
+
+
+
+
+
+
+.not-item-actions {
+    width: 18px;
+    position: relative;
+    right: 0px;
+    display: inline-block;
+    float: right;
+    cursor: pointer;
+    padding: 2px 1px 0 0;
+}
+
+.a-plain {
+	text-decoration: none;
+	color: inherit;
+
+}
+
+.row-header {
+    padding: 4px 4px 1px 2px;
+    background-color: #e0e0e0;
+    height: 20px;
+}
+
+
+.not-item-msg {
+	display: inline-block;
+	color: #666;
+}
+
+.not-top {
+	position: fixed;
+	width: 100%;
+	height: 20px;
+	background: #ccc;
+	right: 10px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 3px;
+  background: #e7e7e7; 
+  
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #aaa; 
+  border-radius: 8px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #999; 
+}
+
+
+h2 {
+    color: rgb(104, 104, 104);
+    display: block;
+    font-family: Roboto, Helvetica, Arial, "Microsoft Sans Serif";
+    font-size: 14px;
+    font-weight: 700;
+    height: 18px;
+    line-height: 18px;
+    margin-block-end: 15px;
+    margin-block-start: 29px;
+    margin-bottom: 15px;
+    margin-inline-end: 0px;
+    margin-inline-start: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 12px;
+    padding-bottom: 0px;
+    padding-left: 14px;
+    padding-right: 0px;
+    padding-top: 0px;
+}
+
+.i-button {
+    width: 18px;
+    height: 18px;
+    color: #ccc;
+    border-radius: 9px;
+    font-size: 14px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.i-button:hover {
+	color: #63ced3;
+}
+
+.i-button > i {
+    padding: 3px 0px 0px 3px;
+    cursor: pointer;
+}
+
+
+.list-container {
+	color:rgb(52, 52, 52);
+display:block;
+font-family:Roboto, Helvetica, Arial, "Microsoft Sans Serif";
+font-size:12px;
+height:345px;
+line-height:18px;
+margin-bottom:0px;
+margin-left:50px;
+margin-right:0px;
+margin-top:0px;
+padding-bottom:0px;
+padding-left:0px;
+padding-right:0px;
+padding-top:0px;
+width:494px;
+}
+
+.tit2 {
+	color:rgb(59, 59, 59);
+display:inline;
+font-family:Roboto, Helvetica, Arial, "Microsoft Sans Serif";
+font-size:14px;
+font-weight:700;
+height:auto;
+line-height:18px;
+width:auto;
+}
+
